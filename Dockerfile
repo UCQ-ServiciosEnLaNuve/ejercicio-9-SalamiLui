@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     libpng-dev \
+    libicu-dev \
     libonig-dev \
     libzip-dev \
     libpq-dev \
