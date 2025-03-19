@@ -7,9 +7,10 @@ services:
     container_name: todo_app-nginx
     restart: unless-stopped
     ports:
-      -8000:80
+      - 8000:80
     volumes:
-      -./:/var/www
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
       - todo_app_network
 
@@ -21,7 +22,7 @@ services:
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
-      -./:/var/www
+      - ./:/var/www
     networks:
       - todo_app_network
 
@@ -36,7 +37,7 @@ services:
       - MYSQL_DATABASE=${DB_DATABASE}
 
     ports:
-      -3306:3306
+      - 3306:3306
     volumes:
       - todo_app_db_volume:/var/lib/mysql
     networks:
